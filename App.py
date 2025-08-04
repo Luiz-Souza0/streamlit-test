@@ -54,7 +54,7 @@ if pagina == "📋 Cadastrar Cliente":
         if nome and telefone and endereco:
             salvar_dado(CLIENTES_FILE, {"nome": nome, "telefone": telefone, "endereco": endereco})
             st.success("✅ Cliente salvo com sucesso!")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("❌ Todos os campos são obrigatórios.")
 
@@ -76,12 +76,12 @@ if pagina == "📋 Cadastrar Cliente":
                                 "nome": nome_edit, "telefone": tel_edit, "endereco": end_edit
                             })
                             st.success("✅ Cliente atualizado!")
-                            st.experimental_rerun()
+                            st.rerun()
             with col2:
                 if st.button("🗑️ Excluir", key=f"del_cliente_{i}"):
                     deletar_dado(CLIENTES_FILE, i)
                     st.warning("⚠️ Cliente excluído.")
-                    st.experimental_rerun()
+                    st.rerun()
     else:
         st.info("Nenhum cliente cadastrado.")
 
@@ -95,7 +95,7 @@ elif pagina == "🛠 Cadastrar Serviço":
         if descricao and valor > 0:
             salvar_dado(SERVICOS_FILE, {"descricao": descricao, "valor": valor})
             st.success("✅ Serviço salvo com sucesso!")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("❌ Preencha todos os campos corretamente.")
 
@@ -116,12 +116,12 @@ elif pagina == "🛠 Cadastrar Serviço":
                                 "descricao": desc_edit, "valor": valor_edit
                             })
                             st.success("✅ Serviço atualizado!")
-                            st.experimental_rerun()
+                            st.rerun()
             with col2:
                 if st.button("🗑️ Excluir", key=f"del_servico_{i}"):
                     deletar_dado(SERVICOS_FILE, i)
                     st.warning("⚠️ Serviço excluído.")
-                    st.experimental_rerun()
+                    st.rerun()
     else:
         st.info("Nenhum serviço cadastrado.")
 
@@ -198,11 +198,12 @@ elif pagina == "📄 Gerar Ordem de Serviço":
                                 "data": data_edit
                             })
                             st.success("✅ Ordem atualizada!")
-                            st.experimental_rerun()
+                            st.rerun()
             with col2:
                 if st.button("🗑️ Excluir", key=f"del_ordem_{i}"):
                     deletar_dado(ORDENS_FILE, i)
                     st.warning("⚠️ Ordem excluída.")
-                    st.experimental_rerun()
+                    st.rerun()
     else:
         st.info("Nenhuma ordem cadastrada.")
+
